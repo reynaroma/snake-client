@@ -10,8 +10,14 @@ const connect = function () {
   // print the message to the screen when the connection is successfully est
   conn.on('connect', () => {
     console.log("Successfully connected to a game server.");
+    // print/send string to the server
     conn.write("Name: RMR");
-  })
+    // movements of the snake to the game server
+    // conn.write("Move: up");
+    // conn.write("Move: down");
+    // conn.write("Move: left");
+    // conn.write("Move: right");
+  });
 
   // to handle incoming data from the server
   conn.on("data", (data) => {
