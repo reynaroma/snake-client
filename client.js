@@ -12,16 +12,16 @@ const connect = function () {
     console.log("Successfully connected to a game server.");
     // print/send string to the server
     conn.write("Name: RMR");
-    // movements of the snake to the game server
-    // conn.write("Move: up");
-    // conn.write("Move: down");
-    // conn.write("Move: left");
-    // conn.write("Move: right");
   });
 
   // to handle incoming data from the server
   conn.on("data", (data) => {
     console.log("Server says: ", data);
+  });
+  // Handle the close event to gracefully exit the program
+  conn.on("close", () => {
+    console.log('Connection closed!');
+    process.exit();
   });
 
   // interpret incoming data as text
@@ -30,4 +30,4 @@ const connect = function () {
   return conn;
 };
 
-module.exports = connect;
+module.exports = { connect };
