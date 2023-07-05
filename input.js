@@ -1,3 +1,8 @@
+const { 
+  move_up_key, move_down_key,
+  move_right_key, move_left_key,
+  say_hello, say_como_estas
+} = require('./constants')
 // stores the active TCP connection object
 let connection;
 
@@ -17,17 +22,17 @@ const handleUserInput = function(data) {
   if (data === '\u0003') {
     console.log('Connection closed!');
     process.exit();
-  } else if (data === 'w') {
+  } else if (data === move_up_key) {
     connection.write('Move: up');
-  } else if (data === 'a') {
+  } else if (data === move_left_key) {
     connection.write('Move: left');
-  } else if (data === 's') {
+  } else if (data === move_down_key) {
     connection.write('Move: down');
-  } else if (data === 'd') {
+  } else if (data === move_right_key) {
     connection.write('Move: right');
-  } else if (data === 'f') {
+  } else if (data === say_hello) {
     connection.write('Say: Hello there')
-  } else if (data === 'r') {
+  } else if (data === say_como_estas) {
     connection.write('Say: Como estas')
   } else {
     console.log("Received input:", data);
