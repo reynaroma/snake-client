@@ -7,4 +7,4 @@ console.log("Connecting ...");
 const conn = connect();
 
 // call setupInput()
-setupInput();
+setupInput(conn);
